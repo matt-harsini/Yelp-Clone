@@ -2,8 +2,7 @@
 
 ## Project Description
 
-* Full-stack web application that allows users to register an account, sign in, add/ update/ delete restaurants, and
-review/ rate those restaurants.
+* Full-stack web application that displays and sorts a list of restaurants with user reviews and ratings.
 * Database created in PostgreSQL, user interface created using React, and routes/ middleware/ backend created
 using ExpressJs and Node.js
 * Users are authorized to access the application using JSON web token.
