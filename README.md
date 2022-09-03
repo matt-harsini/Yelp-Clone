@@ -3,13 +3,12 @@
 ## Project Description
 
 * Full-stack web application that displays and sorts a list of restaurants with user reviews and ratings.
-* Database created in PostgreSQL, user interface created using React, and routes/ middleware/ backend created
-using ExpressJs and Node.js
+* Database created in PostgreSQL, user interface created using React, and backend created with Express.js
 * Users are authorized to access the application using JSON web token.
 
 ## SQL Commands to run on local system
 
-1. Download/ install PostgreSQL
+1. Download and install PostgreSQL.
 2. Run the following commands in your PSQL terminal:
 ```
 CREATE DATABASE yelp;
