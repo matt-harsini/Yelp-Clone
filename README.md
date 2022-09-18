@@ -1,5 +1,4 @@
 <h1 align="center">Interactive-Restaurant-Rater</h1>
-
 Full-stack web application that displays and sorts a list of restaurants with user reviews and ratings.
 
 ## Project Description
