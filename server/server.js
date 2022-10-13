@@ -10,8 +10,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/auth", require("./routes/jwtAuth"));
-app.use("/dashboard", require("./routes/dashboard"))
+app.use("/api/v1/auth", require("./routes/jwtAuth"));
+app.use("/api/v1/dashboard", require("./routes/dashboard"))
 
 // Get all Restaurants
 
