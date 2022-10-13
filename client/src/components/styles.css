@@ -107,9 +107,3 @@ form {
   padding-top: 100px;
 }
 
-.btn-hidden {
-  background-color: var(--bg-color);
-  color: var(--bg-color);
-  border: none;
-  float: right;
-}
