@@ -15,7 +15,7 @@ const RestaurantDetailPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await client.get(`/restaurants/${id}`);
+        const response = await client.get(`restaurants/${id}`);
         console.log(response);
 
         setSelectedRestaurant(response.data.data);
