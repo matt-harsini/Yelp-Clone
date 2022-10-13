@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import LoginAndRegisterBanner from "../components/Banners/LoginAndRegisterBanner";
 
-const LoginPage = ({ setAuth }) => {
+const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
     email: "", //defaults the email as blank
     password: "", //defaults the password as blank
