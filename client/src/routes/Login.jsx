@@ -5,42 +5,69 @@ import { Link } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import LoginAndRegisterBanner from "../components/Banners/LoginAndRegisterBanner";
 
-const Login = ({ setAuth }) => {
+const LoginPage = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
+    email: "", //defaults the email as blank
+    password: "", //defaults the password as blank
   });
 
   const { email, password } = inputs;
-  const { userName } = useContext(RestaurantsContext);
 
   const onChange = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    setInputs({ ...inputs, [e.target.name]: e.target.value }); //changes the name of the input to the current state of the input field
   };
 
-  
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    try {
-      const body = { email, password };
-      const response = await fetch("/api/v1/restaurants/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+    if (process.env.NODE_ENV === "production") {
+      try {
+        const body = { email, password };
+        const response = await fetch("/api/v1/restaurants/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
-      const parseResponse = await response.json();
+        const parseRes = await response.json(); //getting the token and storing it in a variable
 
-      if (parseResponse.token) {
-        localStorage.setItem("token", parseResponse.token);
-        setAuth(true);
-        toast.success("Login Successfully\n");
-      } else {
-        setAuth(false);
-        toast.error(parseResponse);
+        if (parseRes.token) {
+          //if there is a token generated
+          localStorage.setItem("token", parseRes.token); //storing the token in the local storage
+          setAuth(true);
+          toast.success("Login Successful!");
+        } else {
+          setAuth(false);
+          toast.error(parseRes); //returning the error created in the login route in server.js
+        }
+      } catch (err) {
+        console.error(err.message);
       }
-    } catch (error) {
-      console.error(error.message);
+    } else {
+      try {
+        const body = { email, password };
+        const response = await fetch(
+          "http://localhost:3001/api/v1/restaurants/login",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          }
+        );
+
+        const parseRes = await response.json(); //getting the token and storing it in a variable
+
+        if (parseRes.token) {
+          //if there is a token generated
+          localStorage.setItem("token", parseRes.token); //storing the token in the local storage
+          setAuth(true);
+          toast.success("Login Successful!");
+        } else {
+          setAuth(false);
+          toast.error(parseRes); //returning the error created in the login route in server.js
+        }
+      } catch (err) {
+        console.error(err.message);
+      }
     }
   };
 
