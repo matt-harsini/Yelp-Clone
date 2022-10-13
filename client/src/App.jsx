@@ -19,6 +19,7 @@ import ReactSwitch from "react-switch";
 import "./components/styles.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { baseURL } from "./apis/RestaurantFinder";
 
 export const ThemeContext = createContext(null);
 toast.configure();
@@ -54,7 +55,7 @@ const App = () => {
 
   async function isAuth() {
     try {
-      const response = await fetch("http://localhost:3006/auth/verify", {
+      const response = await fetch(`${baseURL}/auth/verify`, {
         method: "GET",
         headers: { token: localStorage.token },
       });

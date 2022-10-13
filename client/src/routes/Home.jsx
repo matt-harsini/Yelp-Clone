@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { ThemeContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../apis/RestaurantFinder";
 
 const Home = ({ setAuth }) => {
   const { userName, setUserName } = useContext(RestaurantsContext);
@@ -16,7 +17,7 @@ const Home = ({ setAuth }) => {
 
   async function getProfile() {
     try {
-      const response = await fetch("http://localhost:3006/dashboard/", {
+      const response = await fetch(`${baseURL}/dashboard/`, {
         method: "GET",
         headers: { token: localStorage.token },
       });

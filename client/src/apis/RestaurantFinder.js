@@ -5,4 +5,8 @@ const baseURL =
     ? "api/v1"
     : "http://localhost:3001/api/v1";
 
-export { baseURL };
+const client = axios.create({
+  baseURL,
+});
+    
+export { baseURL, client};

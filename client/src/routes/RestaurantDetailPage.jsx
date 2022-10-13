@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
-import RestaurantFinder from "../apis/RestaurantFinder";
+import {client} from "../apis/RestaurantFinder";
 import { StarRating } from "../components/StarRating";
 import Reviews from "../components/Reviews";
 import { AddReview } from "../components/AddReview";
@@ -15,7 +15,7 @@ const RestaurantDetailPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await RestaurantFinder.get(`/${id}`);
+        const response = await client.get(`/${id}`);
         console.log(response);
 
         setSelectedRestaurant(response.data.data);

@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
-import RestaurantFinder from "../apis/RestaurantFinder";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
+import {client} from "../apis/RestaurantFinder"
 
 export const RestaurantList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
@@ -11,7 +11,7 @@ export const RestaurantList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await RestaurantFinder.get("/");
+        const response = await client.get("/");
         setRestaurants(response.data.data.restaurants);
       } catch (err) {}
     };
@@ -22,7 +22,7 @@ export const RestaurantList = () => {
     e.stopPropagation();
 
     try {
-      const response = await RestaurantFinder.delete(`/${id}`);
+      const response = await client.delete(`/${id}`);
       setRestaurants(
         restaurants.filter((restaurant) => {
           return restaurant.id !== id;

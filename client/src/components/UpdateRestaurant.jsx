@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
-import RestaurantFinder from "../apis/RestaurantFinder";
-
+import { client } from "../apis/RestaurantFinder";
 export const UpdateRestaurant = (props) => {
   const { id } = useParams();
   let navigation = useNavigate();
@@ -13,7 +12,7 @@ export const UpdateRestaurant = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await RestaurantFinder.get(`/${id}`);
+      const response = await client.get(`/${id}`);
       setName(response.data.data.restaurant.name);
       setLocation(response.data.data.restaurant.location);
       setPriceRange(response.data.data.restaurant.price_range);
@@ -24,7 +23,7 @@ export const UpdateRestaurant = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedRestaurant = await RestaurantFinder.put(`/${id}`, {
+    const updatedRestaurant = await client.put(`/${id}`, {
       name,
       location,
       price_range: priceRange,

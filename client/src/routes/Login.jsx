@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import LoginAndRegisterBanner from "../components/Banners/LoginAndRegisterBanner";
+import { baseURL } from "../apis/RestaurantFinder";
 
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -22,7 +23,7 @@ const Login = ({ setAuth }) => {
     e.preventDefault();
     try {
       const body = { email, password };
-      const response = await fetch("http://localhost:3006/auth/login", {
+      const response = await fetch(`${baseURL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

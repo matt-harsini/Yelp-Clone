@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import RestaurantFinder from "../apis/RestaurantFinder";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { toast } from "react-toastify";
+import { client } from "../apis/RestaurantFinder";
+
 export const AddReview = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export const AddReview = () => {
     e.preventDefault();
 
     try {
-      const response = await RestaurantFinder.post(`/${id}/addReview`, {
+      const response = await client.post(`/${id}/addReview`, {
         name: userName,
         review: reviewText,
         rating,
