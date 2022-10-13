@@ -15,12 +15,22 @@ export const Wheel = () => {
       <div className="arrow"></div>
       <ul className="circle" id="c">
         <li>
-          <div className="text" contentEditable="true" spellCheck="false" value = {"1"}>
+          <div
+            className="text"
+            contentEditable="true"
+            spellCheck="false"
+            value={"1"}
+          >
             1
           </div>
         </li>
         <li>
-          <div className="text" contentEditable="true" spellCheck="false" value = {"2"}>
+          <div
+            className="text"
+            contentEditable="true"
+            spellCheck="false"
+            value={"2"}
+          >
             2
           </div>
         </li>

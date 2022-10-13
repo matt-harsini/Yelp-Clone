@@ -9,7 +9,6 @@ export const RestaurantsContextProvider = (props) => {
   const [theme, setTheme] = useState("light");
   const [mode, setMode] = useState("Light");
 
-
   const addRestaurants = (restaurant) => {
     setRestaurants([...restaurants, restaurant]);
   };
