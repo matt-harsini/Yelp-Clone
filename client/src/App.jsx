@@ -53,9 +53,14 @@ const App = () => {
     setIsAuthenticated(boolean);
   };
 
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? "/auth/verify"
+      : "http://localhost:3006/auth/verify";
+
   async function isAuth() {
     try {
-      const response = await fetch("http://localhost:3006/auth/verify", {
+      const response = await fetch(baseURL, {
         method: "GET",
         headers: { token: localStorage.token },
       });

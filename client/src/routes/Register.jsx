@@ -16,13 +16,18 @@ const Register = ({ setAuth }) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? "/auth/register"
+      : "http://localhost:3006/auth/register";
+
   const onSubmitForm = async (e) => {
     e.preventDefault(); //prevents refreshing
 
     try {
       const body = { email, password, name };
 
-      const response = await fetch("http://localhost:3006/auth/register", {
+      const response = await fetch(baseURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

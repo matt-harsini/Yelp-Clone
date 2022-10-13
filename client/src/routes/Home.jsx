@@ -15,10 +15,14 @@ const Home = ({ setAuth }) => {
   const { coupon, setCoupon } = useState();
 
   const coupons = ["Coupon1", "Coupon2", "Coupon3", "Coupon4", "Coupon5"];
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? "dashboard/"
+      : "http://localhost:3006/dashboard/";
 
   async function getProfile() {
     try {
-      const response = await fetch("http://localhost:3006/dashboard/", {
+      const response = await fetch(baseURL, {
         method: "GET",
         headers: { token: localStorage.token },
       });
