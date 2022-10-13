@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import RestaurantFinder from "../apis/RestaurantFinder";
+import {client} from "../apis/RestaurantFinder";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 
 export const AddRestaurant = () => {
@@ -11,7 +11,7 @@ export const AddRestaurant = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await RestaurantFinder.post("/", {
+      const response = await client.post("/restaurant", {
         name: name,
         location: location,
         price_range: priceRange,

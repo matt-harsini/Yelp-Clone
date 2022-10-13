@@ -11,7 +11,7 @@ export const RestaurantList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await client.get("/restaurant");
+        const response = await client.get("/restaurants");
         setRestaurants(response.data.data.restaurants);
       } catch (err) {}
     };
@@ -22,7 +22,7 @@ export const RestaurantList = () => {
     e.stopPropagation();
 
     try {
-      const response = await client.delete(`/restaurant/${id}`);
+      const response = await client.delete(`/restaurants/${id}`);
       setRestaurants(
         restaurants.filter((restaurant) => {
           return restaurant.id !== id;
