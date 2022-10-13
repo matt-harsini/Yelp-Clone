@@ -16,33 +16,6 @@ const Home = ({ setAuth }) => {
 
   const coupons = ["Coupon1", "Coupon2", "Coupon3", "Coupon4", "Coupon5"];
 
-  function eEgg() {
-    document.documentElement.style.setProperty(
-      "--bg-color",
-      " url(IMPORTANT.jpg"
-    );
-  }
-
-  function eEgg2() {
-    document.documentElement.style.setProperty(
-      "--bg-color",
-      " url(download.png)"
-    );
-  }
-
-  function secret() {
-    document.documentElement.style.setProperty("--bg-color", " url(ee.jpg)");
-  }
-
-  function finishEEgg() {
-    document.documentElement.style.setProperty(
-      "--bg-color",
-      " rgb(224, 99, 109)"
-    );
-    setTheme("light");
-    setMode("Light");
-  }
-
   async function getProfile() {
     try {
       const response = await fetch("http://localhost:3006/dashboard/", {
@@ -63,23 +36,6 @@ const Home = ({ setAuth }) => {
     localStorage.removeItem("user");
     setAuth(false);
     toast.success("ඞ Logged out Successfully, Have a nice day ඞ");
-  };
-
-  const easterEgg = (e) => {
-    setTimeout(eEgg, 1000);
-    setTimeout(eEgg2, 2500);
-    setTimeout(eEgg, 4000);
-    setTimeout(eEgg2, 4100);
-    setTimeout(eEgg, 4200);
-    setTimeout(eEgg2, 4300);
-    setTimeout(eEgg, 4400);
-    setTimeout(eEgg2, 4500);
-    setTimeout(eEgg, 4600);
-    setTimeout(eEgg2, 4700);
-    setTimeout(eEgg2, 4800);
-    setTimeout(eEgg, 4900);
-    setTimeout(secret, 5500);
-    setTimeout(finishEEgg, 7200);
   };
 
   useEffect(() => {
@@ -107,7 +63,9 @@ const Home = ({ setAuth }) => {
             Interactive Restaurant Rater
           </span>
           <br />
-          <h6 className="pt-1 pl-2 float-left font-weight-bold">Username: {userName}</h6>
+          <h6 className="pt-1 pl-2 float-left font-weight-bold">
+            Username: {userName}
+          </h6>
         </div>
       </div>
 
