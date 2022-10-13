@@ -36,7 +36,7 @@ export const AddReview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(baseURL, {
+        const response = await fetch("/dashboard", {
           method: "GET",
           headers: { token: localStorage.token },
         });

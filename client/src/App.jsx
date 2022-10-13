@@ -60,7 +60,7 @@ const App = () => {
 
   async function isAuth() {
     try {
-      const response = await fetch("/api/v1/restaurants/auth/verify", {
+      const response = await fetch("/auth/verify", {
         method: "GET",
         headers: { token: localStorage.token },
       });

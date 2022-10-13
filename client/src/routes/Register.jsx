@@ -22,7 +22,7 @@ const Register = ({ setAuth }) => {
     try {
       const body = { email, password, name };
 
-      const response = await fetch("/api/v1/restaurants/register", {
+      const response = await fetch("/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

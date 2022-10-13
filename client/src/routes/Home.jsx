@@ -19,7 +19,7 @@ const Home = ({ setAuth }) => {
 
   async function getProfile() {
     try {
-      const response = await fetch("/api/v1/restaurants/dashboard", {
+      const response = await fetch("/dashboard/", {
         method: "GET",
         headers: { token: localStorage.token },
       });
