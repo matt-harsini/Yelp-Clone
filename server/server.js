@@ -14,6 +14,11 @@ app.use("/auth", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"))
 
 // Get all Restaurants
+
+app.get("/api/v1/echo", async(req, res) => {
+  return res.status(200).json({test: 4});
+}) 
+
 app.get("/api/v1/restaurants", async (req, res) => {
   try {
     //const results = await db.query("select * from restaurants");
