@@ -1,10 +1,20 @@
 <h1 align="center">Interactive-Restaurant-Rater</h1>
 Full-stack web application that displays and sorts a list of restaurants with user reviews and ratings.
 
+View site: https://www.yelp-clone.xyz/login
+
 ## Project Description
 
 * Database created in PostgreSQL, user interface created using React, and backend created with Express.js
 * Users are authorized to access the application using JSON web token.
+
+## Hosting
+
+* Hosted on AWS EC2 instance.
+* Used PM2 as a process manager to handle running node for our backend server. PM2 will be responsible for restarting the App if/when it crashes.
+* Used NGINX for web serving.
+* Enabled Firewall.
+* Used Let's Encrypt to generate SSL certificates and configure NGINX to use the certificates to redirect http traffic to HTTPS.
 
 ## SQL Commands to run on local system
 
