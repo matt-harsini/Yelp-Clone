@@ -3,6 +3,7 @@ import "../components/styles.css";
 import { toast } from "react-toastify";
 import LoginAndRegisterBanner from "../components/Banners/LoginAndRegisterBanner";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../apis/RestaurantFinder";
 
 const Register = ({ setAuth }) => {
   const nav = useNavigate();
@@ -24,7 +25,7 @@ const Register = ({ setAuth }) => {
     try {
       const body = { email, password, name };
 
-      const response = await fetch("http://localhost:3006/auth/register", {
+      const response = await fetch(`${baseURL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

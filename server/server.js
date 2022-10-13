@@ -17,6 +17,7 @@ app.use("/dashboard", require("./routes/dashboard"))
 
 app.get("/api/v1/echo", async(req, res) => {
   return res.status(200).json({test: 4});
+  
 }) 
 
 app.get("/api/v1/restaurants", async (req, res) => {
