@@ -6,20 +6,17 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { ThemeContext } from "../App";
-import Wheel from "../components/Wheel";
-import BannerHome from "../components/Banners/BannerHome";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ setAuth }) => {
   const { userName, setUserName } = useContext(RestaurantsContext);
   const { setMode, setTheme } = useContext(ThemeContext);
-  const { coupon, setCoupon } = useState();
-
+  const nav = useNavigate();
   const coupons = ["Coupon1", "Coupon2", "Coupon3", "Coupon4", "Coupon5"];
-  
 
   async function getProfile() {
     try {
-      const response = await fetch("/dashboard/", {
+      const response = await fetch("http://localhost:3006/dashboard/", {
         method: "GET",
         headers: { token: localStorage.token },
       });
@@ -39,10 +36,14 @@ const Home = ({ setAuth }) => {
     toast.success("ඞ Logged out Successfully, Have a nice day ඞ");
   };
 
+  const handleGames = (e) => {
+    e.preventDefault();
+    nav("/fun");
+  };
+
   useEffect(() => {
     getProfile();
     const a = Math.floor(Math.random() * (coupons.length - 1));
-    console.log(coupons[a]);
   }, []);
   const a = Math.floor(Math.random() * (coupons.length - 1));
 
@@ -65,7 +66,7 @@ const Home = ({ setAuth }) => {
           </span>
           <br />
           <h6 className="pt-1 pl-2 float-left font-weight-bold">
-            Username: {userName}
+            User: {userName}
           </h6>
         </div>
       </div>

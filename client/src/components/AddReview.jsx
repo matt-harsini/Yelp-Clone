@@ -13,11 +13,6 @@ export const AddReview = () => {
     useContext(RestaurantsContext);
   const [name, setName] = useState(userName);
 
-  const baseURL =
-  process.env.NODE_ENV === "production"
-    ? "/dashboard"
-    : "http://localhost:3006/dashboard";
-
   const handleSubmitReview = async (e) => {
     e.preventDefault();
 
@@ -36,7 +31,7 @@ export const AddReview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/dashboard", {
+        const response = await fetch("http://localhost:3006/dashboard/", {
           method: "GET",
           headers: { token: localStorage.token },
         });

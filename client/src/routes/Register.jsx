@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "../components/styles.css";
 import { toast } from "react-toastify";
 import LoginAndRegisterBanner from "../components/Banners/LoginAndRegisterBanner";
+import { useNavigate } from "react-router-dom";
 
 const Register = ({ setAuth }) => {
+  const nav = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -22,7 +24,7 @@ const Register = ({ setAuth }) => {
     try {
       const body = { email, password, name };
 
-      const response = await fetch("/auth/register", {
+      const response = await fetch("http://localhost:3006/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -30,10 +32,14 @@ const Register = ({ setAuth }) => {
 
       const parseResponse = await response.json();
 
-      localStorage.setItem("token", parseResponse.token);
-      setAuth(true);
-      toast.success("Register Complete");
-      toast.success("Welcome");
+      if (parseResponse.token) {
+        localStorage.setItem("token", parseResponse.token);
+        setAuth(true);
+        toast.success("Register Complete");
+        toast.success("Welcome");
+      } else {
+        toast.error(parseResponse);
+      }
     } catch (error) {
       console.error(error.message);
     }
