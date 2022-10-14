@@ -67,7 +67,7 @@ const Home = ({ setAuth }) => {
           </span>
           <br />
           <h6 className="pt-1 pl-2 float-left font-weight-bold">
-            User: {userName}
+            Username: {userName}
           </h6>
         </div>
       </div>
