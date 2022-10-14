@@ -2,12 +2,13 @@
 Full-stack web application that displays and sorts a list of restaurants with user reviews and ratings.
 
 
+View site: https://www.yelp-clone.xyz/login
+
 ## Project Description
 
 * Database created in PostgreSQL, user interface created using React, and backend created with Express.js
 * Users are authorized to access the application using JSON web token.
 
-View site: https://www.yelp-clone.xyz/login
 
 
 ## SQL Commands to run on local system
