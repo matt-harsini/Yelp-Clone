@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { toast } from "react-toastify";
-import { client } from "../apis/RestaurantFinder";
+import { client, baseURL } from "../apis/RestaurantFinder";
 
 export const AddReview = () => {
   const { id } = useParams();
@@ -18,7 +18,7 @@ export const AddReview = () => {
     e.preventDefault();
 
     try {
-      const response = await client.post(`/${id}/addReview`, {
+      const response = await client.post(`/restaurants/${id}/addReview`, {
         name: userName,
         review: reviewText,
         rating,
@@ -32,7 +32,7 @@ export const AddReview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3006/dashboard/", {
+        const response = await fetch(`${baseURL}/dashboard/`, {
           method: "GET",
           headers: { token: localStorage.token },
         });
