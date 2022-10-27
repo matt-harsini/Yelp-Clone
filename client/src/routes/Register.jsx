@@ -36,8 +36,7 @@ const Register = ({ setAuth }) => {
       if (parseResponse.token) {
         localStorage.setItem("token", parseResponse.token);
         setAuth(true);
-        toast.success("Register Complete");
-        toast.success("Welcome");
+        toast.success("Register complete, welcome!");
       } else {
         toast.error(parseResponse);
       }

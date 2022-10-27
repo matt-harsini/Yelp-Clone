@@ -16,7 +16,7 @@ function Banner({ setAuth }) {
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false);
-    toast.success("ඞ Logged out Successfully, Have a nice day ඞ");
+    toast.success("Logged out Successfully, have a nice day ඞ");
   };
 
   return (

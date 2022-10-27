@@ -25,7 +25,7 @@ export const AddReview = () => {
       });
 
       window.location.reload();
-      toast.success("Review Submitted\n Hopefully nobody hates you now");
+      toast.success("Review submitted");
     } catch (err) {}
   };
 

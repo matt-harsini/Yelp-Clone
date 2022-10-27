@@ -34,7 +34,7 @@ const Login = ({ setAuth }) => {
       if (parseResponse.token) {
         localStorage.setItem("token", parseResponse.token);
         setAuth(true);
-        toast.success("Login Successfully\n");
+        toast.success("Login successful\n");
       } else {
         setAuth(false);
         toast.error(parseResponse);
