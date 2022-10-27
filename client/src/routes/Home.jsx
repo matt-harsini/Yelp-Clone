@@ -34,7 +34,7 @@ const Home = ({ setAuth }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setAuth(false);
-    toast.success("ඞ Logged out Successfully, Have a nice day ඞ");
+    toast.success("Logged out Successfully, have a nice day ඞ");
   };
 
   const handleGames = (e) => {
