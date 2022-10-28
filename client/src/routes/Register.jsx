@@ -60,18 +60,18 @@ const Register = ({ setAuth }) => {
         />
         <input
           className="form-control my-3"
-          type="password"
-          name="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          className="form-control my-3"
           type="text"
           name="name"
           placeholder="name"
           value={name}
+          onChange={(e) => onChange(e)}
+        />
+        <input
+          className="form-control my-3"
+          type="password"
+          name="password"
+          placeholder="password"
+          value={password}
           onChange={(e) => onChange(e)}
         />
         <button className="btn btn-primary btn-block">Submit</button>
