@@ -40,7 +40,7 @@
 }
 
 .banner {
-  color: red;
+  /* color: red; */
   size: 1px;
   background-color: black;
   position: absolute;
@@ -55,11 +55,15 @@
   border-top: none;
   border-left: none;
   border-right: none;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-weight: normal;
 }
 
 #light .banner {
-  color: black;
-  background-color: rgb(136, 38, 46);
+  color: rgb(255, 255, 255);
+  /* background-color: #212529; */
 }
 
 #dark .banner {
@@ -105,5 +109,20 @@ form {
 
 #btn-modes {
   padding-top: 100px;
+}
+
+.user-info {
+  color: white;
+}
+
+.login-reg {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.reg-info {
+  color: #212529;
+  font-weight: normal;
+  font-size: 20px;
 }
 

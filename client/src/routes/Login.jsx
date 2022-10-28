@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import LoginAndRegisterBanner from "../components/Banners/LoginAndRegisterBanner";
 import { baseURL } from "../apis/RestaurantFinder";
+import "../components/styles.css";
 
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -68,7 +69,7 @@ const Login = ({ setAuth }) => {
           />
           <button className="btn btn-primary btn-block">Submit</button>
         </form>
-        <Link to="/register">Don't have an account? Click here</Link>
+        <Link to="/register" class="reg-info">Don't have an account? Click here</Link>
       </div>
     </div>
   );

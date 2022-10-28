@@ -62,13 +62,11 @@ const Home = ({ setAuth }) => {
         </button>
 
         <div className="float-left">
-          <span className="pl-2 pt-2 float-left font-weight-bold">
+          <span className="pl-2 pt-2 float-left ">
             Interactive Restaurant Rater
           </span>
           <br />
-          <h6 className="pt-1 pl-2 float-left font-weight-bold">
-            Username: {userName}
-          </h6>
+          <h6 className="pt-1 pl-2 float-left ">Username: {userName}</h6>
         </div>
       </div>
 

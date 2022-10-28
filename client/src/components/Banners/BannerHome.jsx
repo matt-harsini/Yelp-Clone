@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { RestaurantsContext } from "../../context/RestaurantsContext";
 import { toast } from "react-toastify";
 import App from "../../App";
+import "../styles.css";
+
 function BannerHome({ setAuth }) {
   const { userName } = useContext(RestaurantsContext);
 
@@ -21,14 +23,12 @@ function BannerHome({ setAuth }) {
         Home
       </button>
 
-      <div className="float-left">
-        <span className="pl-2 pt-2 float-left font-weight-bold">
+      <div className="user-info">
+        <span className="pl-2 pt-2 float-left">
           Interactive Restaurant Rater
         </span>
         <br />
-        <h6 className="mb-3 pt-1 pl-2 float-left font-weight-bold">
-          Username: {userName}
-        </h6>
+        <h6 className="mb-3 pt-1 pl-2 float-left">Username: {userName}</h6>
       </div>
     </div>
   );
